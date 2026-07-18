@@ -1,0 +1,63 @@
+{
+  "results": {
+    "short_factual": {
+      "ms": 15028,
+      "words": 74,
+      "tok_s": 6.4,
+      "lane": "FACTUAL",
+      "att": 1.0
+    },
+    "medium_procedural": {
+      "ms": 70137,
+      "words": 342,
+      "tok_s": 6.3,
+      "lane": "PROCEDURAL",
+      "att": 1.0
+    },
+    "long_logical": {
+      "ms": 68537,
+      "words": 336,
+      "tok_s": 6.4,
+      "lane": "LOGICAL",
+      "att": 1.0
+    },
+    "creative": {
+      "ms": 102707,
+      "words": 574,
+      "tok_s": 7.3,
+      "lane": "CREATIVE",
+      "att": 1.0
+    },
+    "complex": {
+      "ms": 75765,
+      "words": 342,
+      "tok_s": 5.9,
+      "lane": "LOGICAL",
+      "att": 0.95
+    },
+    "technical": {
+      "ms": 69406,
+      "words": 282,
+      "tok_s": 5.3,
+      "lane": "LOGICAL",
+      "att": 0.95
+    },
+    "threat_analysis": {
+      "ms": 66508,
+      "words": 323,
+      "tok_s": 6.3,
+      "lane": "LOGICAL",
+      "att": 0.95
+    },
+    "max_output": {
+      "ms": 68717,
+      "words": 326,
+      "tok_s": 6.2,
+      "lane": "LOGICAL",
+      "att": 0.95
+    }
+  },
+  "cold_boot_ms": 237.94335898128338,
+  "avg_ms": 67100.625,
+  "avg_tps": 6.2625
+}

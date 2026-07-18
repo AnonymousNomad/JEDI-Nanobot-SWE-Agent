@@ -1,0 +1,482 @@
+[
+  {
+    "id": "st-1",
+    "r": "[Spawn: check size=2K]\n  size: 7.5GB / 6.2GB = 24% utilization\n[Spawn: check path=check path]\n  path: /var/run/myapp -h shows 6.2GB used\n[Spawn: check method=check method]\n  method: memory probe (m",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-2",
+    "r": "[Spawn: check_stat size=3]\n  + 30M RAM, 10M CPU, 50GB disk\n  + [Nanobot: monitor_stat]\n  |-- 0.5% connection rate (45/100)\n  + [Nanobot: check_stat]\n  |-- 99.99% rate (40/",
+    "t": 15,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-3",
+    "r": "[Spawn: size=2K] inspecting=faulty Nginx config\n  - 1500 bad 502 errors in last hour\n  - 100% of errors from same server (80% CPU)\n[Spawn: size=5K] mapping error to config\n  - /rules/accept: all 502s\n  - /",
+    "t": 16,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-4",
+    "r": "[Spawn: check load distribution]\n  - size=2kB\n  - state: load profile\n    - avg=12.5\n    - peak=8.3\n    - 8-core system\n[Spawn: analyze)\n  - size: root cause\n    - root: 8-core system with 3xP4K cores. 8",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "st-5",
+    "r": "[Spawn: nanobot size=2K]\n  state: analyze size\n  state: finding: 4K daily backups, 2K temp files, 1.5K rootfs. Disk at 92%.\n  [Spawn: nanobot size=5K]\n  state: prioritizing: analyze filesystem health, identify critical vs. non",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "st-6",
+    "r": "[Spawn: insert size=3K]\n  state: finding: root cause\n  state: diagnostic\n  state: fix: [shell] /var/run/nginx.pid > /tmp/nginx.pid && kill -9 <PID>\n\n  [spawn: insert size=5K]\n  state: root: child process",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "st-7",
+    "r": "[Spawn: check size]\n  - size: 3.2Kb/4Kb\n[Spawn: analyze pattern]\n  - pattern: 1.2Kb/1.2Kb = 1% data loss per write\n[Spawn: diagnose]\n  - diagnosis: 4K \u2192 4K \u2192 4K \u2192",
+    "t": 18,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-8",
+    "r": "[Spawn: check-stat]\n  state: analyzing\n  size: 5K\n  state: finding\n  result: TikTok is a classic latency killer.\n\n[Spawn: map-stat]\n  state: mapping\n  size: 5K\n  state: finding\n  result: TikTok = 1.6s/1.",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "st-9",
+    "r": "[Spawn: size=5K]\nAnalyzing image growth\n  state: finding root cause\n  +[NANO: graphviz] Visualizing build dependencies\n  +[NANO: diff] Comparing old vs new build layers\n  +[NANO: analysis] 80% of growth from 1.2K image \u2192 400",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "st-10",
+    "r": "[Spawn: size=3K]\nanalyze lag sources\n  - Check master-client connections\n  - Verify server CPU/memory\n  - Check network between servers\n  - Check replication settings\n[Spawn: size=4K]\ncheck replication config\n  - bcp 8s: server 1 -> server 2\n  - CHECK replication lag",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-11",
+    "r": "[Spawn: check size=4K]\n  - analyze old vs new policy\n    - old: FIFO (FIFO) - FIFO evicts LRVN (Least Recently Visited)\n    - new: LRN (Least Recently Near) - LRN evicts LRVN\n  - identify root cause\n    - root: LRV",
+    "t": 20,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-12",
+    "r": "[Spawn: nanobot size=2K]\n  state: diagnosing\n  [nano: root=0]\n  [nano: diagnostic]\n  [nano: analysis]\n  [nano: finding]\n  [nano: pattern]\n  [nano: fix]\n  [nano: verification]\n  [nano: result]\n  [nano",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "st-13",
+    "r": "[Spawn: N=2K]\n  - size=5K\n  - diagnosis: error rate spike from 0.1% \u2192 4.5% in 10min\n[Spawn: N=3K]\n  - root: error rate spikes from 1K \u2192 4K per second\n[Spawn: N=4K]",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-14",
+    "r": "[Spawn nanobot: TTL=5h. Check expiry. Check renewal process. Check if auto-renewal is enabled. Check if cert is valid. Check certificate chain. Check if server has proper TLS config. Check if client supports TLS 1.2+. Check if client supports TLS 1.3. Check if client certificate is signed",
+    "t": 17,
+    "spawn": false,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "st-15",
+    "r": "[Spawn: check size=2K]\n  state: finding issue\n  state: problem\n  state: [solution]\n  state: fix\n  state: n2k\n  state: nn\n[Spawn: analyze issue]\n  state: root cause\n  state: cause\n  state: fix\n[Spawn: fix issue]",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "mc-1",
+    "r": "[Spawn: nanobot size=3K]\n  - Analyze: What's the problem? (size 5K)\n  - Check: Reference code? (size 2K)\n  - Verify: Test case? (size 2K)\n  - Find: Code has a typo in variable name. Wrong function call. Output is wrong.\n[S",
+    "t": 18,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-2",
+    "r": "[Spawn nanobots: size=2K]\n  | 0: N=5K\n  | 1K: Stats analysis\n  | 2K: Root cause\n  | 0K: Assumptions\n  +[Spawn: statistics analysis]\n  +[Spawn: root cause]\n  +[Spawn: assumptions",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-3",
+    "r": "Spawn nanobot: explain what you're trying to fix.",
+    "t": 5,
+    "spawn": false,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-4",
+    "r": "[Spawn: nanobot=5K]\n  -+ 0.01s response\n  -+ [Nanobot=5K]\n  - 0.01s response\n  -+ [Spawn: data structure=5K]\n  -+ [Spawn: analysis=5K]\n  -+ [Spawn: limit=",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-5",
+    "r": "I spawn nanobots to check assumptions. Nanobot probes ask: \"What evidence do I have for this?\" Nanobot probes validate assumptions. Nanobot debugger catches bugs.",
+    "t": 10,
+    "spawn": false,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-6",
+    "r": "[Spawn: nanobot size=2K]\n  1. Read and understand the problem statement\n  2. Analyze inputs: format, length, structure\n  3. Analyze constraints: memory, communication, time\n  4. Analyze capabilities: pattern matching, rule-based, rule-based, pattern matching, rule-based\n  5. S",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-7",
+    "r": "[Spawn: nanobot = 1K]\n  - Analyze: 3.2k lines of inference\n  - Find: 17% of code uses deprecated math (math.ceil() before 2003)\n  - Verify: 42 lines of code with no change since 2015\n[Spawn: nanobot = 2K",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-8",
+    "r": "[Spawn: data]\n  - analyze statistical correlation (pearson >0.5)\n  - construct causal chain (A \u2192 B \u2192 C)\n  - add controlled variable (randomize A)\n  - add confounding variable (randomize C)\n  - check for spurious correlation (P=0.3)\n\n[Spawn: analysis]\n  - correlation = association",
+    "t": 18,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-9",
+    "r": "[Spawn: nanobot size=3K]\n  state: mapping: what's wrong?\n  state: gap: no test coverage. Nanobot generates code, no validation. Missing: test coverage, unit tests, integration tests.\n\n[Spawn: nanobot size=5K]\n  state: root: no coverage. Critical gap: 90% of",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "mc-10",
+    "r": "[Spawn: check-stat]\ncheck-stat: define conclusion as correct \u2192 add counterexample \u2192 check-stat: counterexample valid \u2192 add proof \u2192 check-stat: proof valid \u2192 conclusion confirmed\n\nTrace execution flow:\n1. Write conclusion\n2. Add counterexample + verify it's wrong\n3. Add proof + verify proof exists\n4. Independent verification successful",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-11",
+    "r": "[Spawn: nanobot size=1K]\n  state: mapping bias: 17% of test cases misclassified due to dataset skew\n  state: bias: model learns to associate 'sudden' with 'attack' (80% accuracy)\n\n[Spawn: bias: size: 10K]\n  state: bias: model over-optim",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "mc-12",
+    "r": "[Spawn: nanobot size=2k]\n  - size: 2k\n  - state: root\n    - state: 1.1k\n    - state: 1.5k\n[Spawn: nanobot size=4k]\n  - size: nanobot\n  - size: fix\n    - size: fix",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "mc-13",
+    "r": "[Spawn: check-stat] check-stat: root cause not found. Nanobot swarm probes: 0.1kHour. State: incomplete.",
+    "t": 9,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "mc-14",
+    "r": "[Spawn: nanobot size=3K]\n  state: model: analyzing impact vs. effort\n  impact: Critical: system outage (high effort: 24h)\n  effort: Minor: code review (medium effort: 1h)\n  effort: Bug fix: low effort (1h)\n  analysis: 1) Critical issues first (system stability",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "mc-15",
+    "r": "[Spawn nanobot: Triage]\n  0. Analyze input patterns\n  0. Check for common attack signatures\n  0. Verify data consistency across layers\n[Spawn nanobot: Analysis:]\n  2. Detected 3.2KB anomalous binary in memory\n  1. Binary signature matches known ransomware pattern",
+    "t": 18,
+    "spawn": false,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ex-1",
+    "r": "[Spawn: assign=nanobot size=4K]\n  state: mapping disk usage by process\n  state: finding /var with largest usage\n    grep -l 'pfs' /var/spool/pfsd\n    grep -l 'fs' /var/spool/fsd\n  state: output: /var/run/db.pgs",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ex-2",
+    "r": "[Spawn: check-state=0]\n[Spawn: map-stake=1]\n[Spawn: map-stake=2]\nPort 3000 is in use by: nc 3000\n[Spawn: map-stake=3]\n[Spawn: map-stake=4]\nPort 3000 is by: ncadmin",
+    "t": 18,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ex-3",
+    "r": "[Spawn: check size=2K]\n  state: finding: finding [SUID] bit in file system\n  state: method: [Spawn: check size=4K]\n  state: tool: [Spawn: check size=5K]\n  state: result: [Spawn: find: /etc/passwd, /bin/sh",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ex-4",
+    "r": "[Spawn: check-status]\n  config: PostgreSQL service status via systemctl\n  result: service is running\n[Spawn: diagnose-debug]\n  config: PostgreSQL pg_stat_resource\n  result: service is healthy\n\nPostgreSQL service status: systemctl --status pgdb\n\n[Spawn: explain]\nconfig:",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ex-5",
+    "r": "[Spawn: nanobot size=2K]\n  state: analyzing: data flow across network\n  state: routing table = 4 entries\n  state: path: [traceroute -C] shows 3 hops, [ping 192.0.2.1] returns in 2s, [ping 10.0.0.1] returns",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ex-6",
+    "r": "[Spawn: nanobot size=3K]\nanalyze directory tree structure\n  state: finding: 2.1KB\n  sub-steps\n  - Get all subdirectories with find()\n  - Sort by size descending\n  - Take top 5\n[Nano: nanosize=1000]\nfetch top 5\n  state: result",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ex-7",
+    "r": "[Spawn: check size=2K]\n  state: finding: 5-min DNS resolution latency\n  state: method: nanobot probes with tcdo\n    - 1 sec to 2 sec resolution\n  state: result: 0.82s average latency (good)\n\n[Spawn: map size=5K]\n  state: path:",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ex-8",
+    "r": "[Spawn: check size=2K]\n  state: finding: memory profiling tool\n  state: method: ps -o commtime= | grep -E '[0-9]'\n  state: output: 3 processes show >10MB RAM\n  state: result: Python 3.11 + memory profiler (mprof) + Python 3.10",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ex-9",
+    "r": "[Spawn: check size=4K]\n  state: finding: see network connections in TIME_WAIT state\n  state: method: TcpStream -> state -> connection is closed\n    | TCP -> state: connection is in TIME_WAIT state\n  state: tool: TcpClient.WasConnected -> state -> connection is still in TIME_WAIT state",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ex-10",
+    "r": "[Spawn nanobot: T2]\n  0. Analyze SSH logs for failed attempts\n  2. Identify failed attempts (typically 2xx errors)\n  3. Visualize attack pattern\n  4. Analyze (Python: check for failed connections)\n[Spawn nanobot: W2]\n  0. Analyze",
+    "t": 17,
+    "spawn": false,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ct-1",
+    "r": "[Spawn: check-state]\n  state: mapping: fix: add error-handling middleware\n  state: add: add error-handling middleware to API\n  state: check: add middleware to catch 404s, 500s\n  state: fix: add middleware to catch errors and return JSON response\n\n[solution: map state]\n  state",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ct-2",
+    "r": "[Spawn: check size=2K]\n  + create nanobot (stats: 1.5K)\n  + debug: check error 404 vs 500 vs 503\n  + root cause: 503 Service Unavailable (Nginx Redis fail)\n[Spawn: fix size=5K]\n  + fix Nginx Redis config:",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ct-3",
+    "r": "[Spawn: nanobot size=3K]\n  | config: [problem: missing auth key]\n  |  |  |  |  |  |  | [Spawn: nanobot size=4K]\n  |  |  |  |  |  |  | [Spawn: nanobot size=5K]\n  |",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ct-4",
+    "r": "[Spawn: nanobot=5H]\n 0:00:00 - Analyze root cause\n  0:00:01: NANO: root cause = unpatched CVE-2023-26956 (CVSS 10) in internal network service. Exploit: SQL injection on user data table.\n  0:00:02: N",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ct-5",
+    "r": "[Spawn: check size=4K]\n  state: mapping: pre-mortem\n  state: findings\n  state: root: failure was due to unhandled async write queue overflow. Batch writes to DB were implemented. Memory leak from orphaned threads.\n\n[Spawn: diagnose size=5K]\n  state: impact: critical\n  state:",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ct-6",
+    "r": "[Spawn: nanobot=1K]\n  - size=5K\n  - state: debugging: [problem: latency spike] [cause: misconfigured cache] [fix: reconfigure cache]\n[Spawn: nanobot=2K]\n  - size=5K\n  - size: root: root out the cache misconfig.",
+    "t": 25,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ct-7",
+    "r": "[Spawn: nanobot size=3K]\n  size: 3K\n  state: [read: what]\n  state: [state]\n  state: [state]\n  state: [state]\n  state: [size]\n  size: [sanity check]\n  size: [sanity check]\n  size: [sanity check]",
+    "t": 21,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ct-8",
+    "r": "[Spawn nanobot: MeanCalc]\n  state: 0M\n  size: 1kb\n  number: 2\n  tags: performance, critical\n  rules: 1. No memory leaks. 2. No external API calls. 3. No hardcoded credentials.\n\n[Spawn nanobot: MeanCalc]",
+    "t": 15,
+    "spawn": false,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "ct-9",
+    "r": "[Spawn: check-status]\ncheck-status\nwrite-mini-documentation\n[Spawn: analyze-stat]\nNanobot 1: identify root cause (corrupted database schema)\n[Spawn: implement-stat]\nfix schema: migration to normalized design\n[Spawn: test-status]\nvalidate fix (run schema check post-change",
+    "t": 14,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "ct-10",
+    "r": "[Spawn: nanobot size=1K]\n  - size: 2.4K\n  - state: shared\n  - result: 100% coverage\n  - analysis: All 1,234 checks passed. No issues.\n\n[Spawn: nanobot size=3K]\n  - size: 5.2K\n  - state",
+    "t": 22,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "sw-1",
+    "r": "[Spawn: nanobot size=2K]\n  measure memory usage (gibbertly high)\n  diagnose (memory leak?)\n  fixes (proper chunking, state sync, shared memory)\n[Spawn: nanobot size=5K]\n  memory leak confirmed: unclosed filehandles, unoptimized serialization\n  fix (pro",
+    "t": 18,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "sw-2",
+    "r": "[Spawn: size=2K]\n  state: finding root\n  state: root: heap pressure 99.9%. Size 4MB. All allocated memory.\n[Spawn: size=3K]\n  state: root: memory leak\n  state: root: memory leak. All allocated memory. 4MB. No cleanup.\n[Spawn: size",
+    "t": 16,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "sw-3",
+    "r": "[Spawn: nanobot size=3K]\n  - Analyze exit code 139: stack overflow (catapult=0)\n  - Find issue: unhandled memory leak in app.py\n  - Fix: add try/except for memory ops and increase heap size\n  - Verify: container runs without segfault after fix\n\n[Analyze] nan",
+    "t": 16,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "sw-4",
+    "r": "[Spawn nanobot size=2K]\n  |  |  |  |  | [NANO: parse HTTP response headers]\n     [NANO: path=path]\n     | [NANO: size=4K]\n  |  |  |  |  | [NANO: add: npm-checkup=1>; n",
+    "t": 17,
+    "spawn": false,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "sw-5",
+    "r": "[Spawn: check size=5K]\n  - 504: client sent 429 too\n  - 30s: no data after 30s\n[Spawn: map size=4K]\n  - TTL=15min. 30s = 2 min expired.\n[Spawn: fix size=6K]\n  - add TTL=",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "sw-6",
+    "r": "[Spawn: size=2K]\n| scope: diagnosis]\n  state: finding root\n  [Nano: analyze memory usage]\n  [Nano: analyze Redis config]\n  [Nano: identify: 30GB cache, 2x RAM, 100% utilization]\n  [Nano: fix:]\n    - Redis: set maxmemory=",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "sw-7",
+    "r": "[Spawn: nanobot size=5K]\n  state: analyzing\n  time: 2s\n  analysis: 3s function call -> 15s timeout -> 3-second delay. Each call waits for previous call to finish.\n  solution: add async support. Use async/await. Or implement rate limiting. Or add timeouts per call.",
+    "t": 18,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "sw-8",
+    "r": "[Spawn: check size=5K]\n  state: finding root cause\n  state: query 1: SELECT * FROM users WHERE id = 12345\n  state: query 2: SELECT * FROM orders WHERE user_id = 12345\n  state: analysis\n  - Both queries reference same 2-tuple (user_id, order_id)",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  },
+  {
+    "id": "sw-9",
+    "r": "[Spawn: size=6K]\n  measure memory\n  size: 1.2MiB\n  5.0s before limit hit\n[Spawn: size=5K]\n  analysis: 1000 open sockets, 1000fcp, 1000fread, 1000fwrite, 1000sleep, 100",
+    "t": 17,
+    "spawn": true,
+    "state": false,
+    "conclusion": false
+  },
+  {
+    "id": "sw-10",
+    "r": "[Spawn: size=2K]\n  state: diagnosing\n  issue: no output from cron. Check logs.\n  root: check cron config. [size=4K]\n  root: [check] config: 2 minutes past due. [size=3K]\n  root: [check] service: service unnamed: 0. [size=5K]",
+    "t": 17,
+    "spawn": true,
+    "state": true,
+    "conclusion": false
+  }
+]

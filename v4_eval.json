@@ -1,0 +1,32 @@
+{
+  "terminal": {
+    "n": 6,
+    "spawn": 100.0,
+    "conclusion": 66.66666666666666,
+    "code": 0.0
+  },
+  "debug": {
+    "n": 4,
+    "spawn": 100.0,
+    "conclusion": 75.0,
+    "code": 25.0
+  },
+  "explain": {
+    "n": 4,
+    "spawn": 100.0,
+    "conclusion": 100.0,
+    "code": 25.0
+  },
+  "code": {
+    "n": 3,
+    "spawn": 100.0,
+    "conclusion": 66.66666666666666,
+    "code": 66.66666666666666
+  },
+  "meta": {
+    "n": 2,
+    "spawn": 100.0,
+    "conclusion": 100.0,
+    "code": 0.0
+  }
+}

@@ -1,0 +1,8 @@
+torch
+llama-cpp-python
+huggingface_hub
+transformers
+peft
+accelerate
+safetensors
+numpy

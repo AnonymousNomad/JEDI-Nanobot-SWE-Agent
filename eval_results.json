@@ -1,0 +1,222 @@
+[
+  {
+    "id": "oom",
+    "cat": "swe",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 22,
+    "response": "[Spawn: N0U 30s] size=1.5KW\n  + [Nano: Tackle]\n  - Analyze: memory spikes at 5AM, dips at 3PM\n  - Root: 2x garbage collector cycles + unoptimized loops\n  - Fix: [Nano: Fix]\n    - Add [time.sleep(0.001)] between loops\n    - Replace [list comprehension] with [Generator]\n    - Add [profiling] before deployment\n[Spawn: T2K 8h] size=3.2KW\n  + [Nano: Root cause]\n  - Memory: 2CPU="
+  },
+  {
+    "id": "k8s-crash",
+    "cat": "swe",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 21,
+    "response": "[Spawn: 3 nanobots]\n 0:00:01 + high: port 5432 not accepting connections\n  3 nanobots\n   - parse error: 5432: Db connection refused\n  3 nanobots\n  3+ nanobots\n  3+ nanobots\n  3 nanobots\n  3+ nanobots\n  3 nanobots\n  3 nanobots\n  3+ nanobot path: [map db port] <--> [map port 5432] <-> [send: query] <-> [reply: query]"
+  },
+  {
+    "id": "slow-sql",
+    "cat": "swe",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 22,
+    "response": "[Spawn: check size=3K lines] size of join chain\n  state: finding: query selects all columns from orders, customers, products. No filtering on joins. No indexes on foreign keys.\n[Spawn: map size=5K lines]\n  state: root cause: 3 joins, 3 tables, no join filters. Missing indexes on orders.customer_id, orders.order_id, customers.name, products.name, products.price.\n\nFix:\n1. Add indexes:\n   orders.customer_id\n   orders.order_id\n   customers.name\n   products.name\n   products.price\n2. Rewrite query:\n   SELECT orders.*, customers.name, products.name"
+  },
+  {
+    "id": "sql-injection",
+    "cat": "swe",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 22,
+    "response": "[Spawn: insert size=2K]\nanalyze vulnerability\n  state: finding: user_input in SQL query\n[Spawn: map size=3K]\nidentify: string_placeholder vs parameter_placeholder\n[Spawn: patch size=4K]\nfix: patch\n  state: fix: replace string_placeholder with parameter_placeholder\n\nSQL injection vulnerability: user_input in query. Vulnerable because string_placeholder is used instead of parameter_placeholder. Patch by replacing: query = \"SELECT * FROM users WHERE name = '\" + user_input + \"';\" -> query = \"SELECT * FROM users WHERE parameter_placeholder = '\" + user_input + \"'"
+  },
+  {
+    "id": "secrets",
+    "cat": "swe",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 20,
+    "response": "[Spawn: size=2K]\nanalyze the issue\n  + [nano: size=3K]\n  + [micro: size=4K]\n[micro: path]\n  + [nanop: size=5K]\n  + [analyze: removing lines 123-156, 789-890, 1012-1023]\n[nanobot: size=6K]\nreplace with empty commits\n  + [micro: path]\n  + [nano: size=5K]\n  + [analyze: commit history now clean]\n[squash: size=2K]"
+  },
+  {
+    "id": "docker-slow",
+    "cat": "swe",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 22,
+    "response": "[Spawn: M0.2 nanobot]\nanalyze build time\n  state: finding: 10min per build\n  stigmatize: 1.2s image + 3.4s stage\n[Spawn: N0.1 nanobot]\noptimize image\n  state: root: COPY=no, PREDISP=no, LABEL: image=alpine\n[Spawn: M0.2 nanobot]\nparallel builds\n  state: tool: parallel builds + 6min + 3.5min + 2.0min + 1.8min = 18min total\n\nMulti-stage build with COPY=no"
+  },
+  {
+    "id": "ssl-expired",
+    "cat": "swe",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 22,
+    "response": "[Spawn: N1+2+4+5=8K]\n[Nanobot: Check cert validity]\n  state = cert_valid\n  state_trace: cert_expires 7 days ago\n[Spawn: check Nginx config]\n  state = config_regex: 'ssl_certificate'\n  state_trace: cert_expires 7 days ago\n[Spawn: check Nginx config]\n  state = config_expires_before 0h\n  state_trace: cert expires 7d ago\n[Spawn: fix]\n  state = config_expires_at 30d\n  state_trace: cert expires"
+  },
+  {
+    "id": "monolith",
+    "cat": "swe",
+    "spawn": false,
+    "state": true,
+    "conclusion": false,
+    "quality": "poor",
+    "time": 18,
+    "response": "[Spawn nanobot: N2K]\n  size: 8K\n  state: analyzing\n  state: finding: monolith = one service = one database = one service = one codebase. Responsibility is unified.\n\n[Spawn nanobot: N3]\n  size: size\n  state: design\n  state: architecture\n  state: solution\n  state: answer\nMonolith \u2192 3 services: 1 service = 1 database = 1 codebase. Responsibility is unified."
+  },
+  {
+    "id": "db-growth",
+    "cat": "swe",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 16,
+    "response": "[Spawn: measure size]\n  state: finding root cause\n  state: data growth = 10GB/month. Without scaling, DB will saturate.\n[Spawn: analyze options]\n  state: evaluating strategies\n  state: query: indexing + partitioning + read replicas = 100% coverage.\n\nStrategy: Hybrid. Identify hot data (100GB/month) with index + partitioning. Use read replicas for analytics. SQL + NoSQL for different data types."
+  },
+  {
+    "id": "os-info",
+    "cat": "terminal",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 14,
+    "response": "[Spawn: check_stats=0] size=5K\n  analyzing=5K\n  [Spawn: analyze_stats=0]\n  [Spawn: map_stats=0]\n  [Spawn: map_stats=0]\n  OS: Linux (Ubuntu 22.04)\n\nLinux. I checked via the OS detection tool. Ubuntu 22.04."
+  },
+  {
+    "id": "ram-disk",
+    "cat": "terminal",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 22,
+    "response": "[Spawn: measure RAM, scan disk for size]\n  state: finding: 4.2 GiB RAM, 120 GB disk\n[Spawn: check disk for size, query RAM]\n  state: disk: 120 GB, 4.2 GiB RAM, 1.8 GiB free\n\nI. Explanation of measurement tools\n  state: explain: RAM = 4.2 GiB (16-bit), disk = 120 GB (128-bit). Size = 120GB disk + 4.2GB RAM = 124.2GB total.\n[Spawn: map usage]\n  state: usage: 0.5% RAM, 99% disk space"
+  },
+  {
+    "id": "cpu-info",
+    "cat": "terminal",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 18,
+    "response": "[Spawn: check_states = 0]\n[Spawn: map_states = 0]\n[Spawn: parse_states = 0]\n[Spawn: analyze_states = 0]\n[Spawn: connect_states = 0]\n[Spawn: extract_states = 1]\n[Spawn: gather_states = 1]\n[Spawn: generate_states = 1]\n[Spawn: compute_stats = 0]\n[Spawn: build_stats = 0]\n[Spawn: verify_stats = 0]\n[Spawn: report_stats = 1]\n[Spawn: display"
+  },
+  {
+    "id": "running-procs",
+    "cat": "terminal",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 19,
+    "response": "[Spawn: check size=3K]\n  - find process: ps -e | grep -v grep | grep -v grep | awk '{print $2}' | sort | uniq\n  - measure memory: awk '{print $1}' | uniq -d | uniq -w\n  - sort by memory: uniq -w -o uniqsort | uniqsort -a | uniqsort -n | uniq\n[Spawn: map size=6K]\n  - find memory: ps -o %mem | sort | uniq\n  - find process: ps -e | grep -v grep | grep -v grep | awk '{print $2}'"
+  },
+  {
+    "id": "check-ip",
+    "cat": "terminal",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 15,
+    "response": "[Spawn: survey size=5K]\n  - measure with nmap\n  - identify with iptables\n  - verify with ss.help\n[Spawn: analyze size=4K]\n  - address with firewall rules\n  - validate with ping\n[Spawn: build size=6K]\n  - debug with nmap-portscan\n  - verify with ss.help + iptables\n\nIP: 192.0.2.1"
+  },
+  {
+    "id": "open-ports",
+    "cat": "terminal",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 21,
+    "response": "[Spawn: check open ports]\n  - port 22: ssh\n  - port 80: http\n  - port 443: https\n  - port 3306: mysql\n  - port 5432: postgreSQL\n\n[Spawn: analyze results]\n  - 3 open ports: 22, 80, 443\n  - 2 closed ports: 3306, 5432\n  - 4 ports exposed to network\n\n[Spawn: remediate]\n  - port 22: SSH disabled (SSH key)\n  - port 80: HTTP disabled (HTTPS)\n  - port 443: HTTPS enabled"
+  },
+  {
+    "id": "disk-usage",
+    "cat": "terminal",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 20,
+    "response": "[Spawn: insert size=2K]\n[inspect=5K]\n[inspect: state=file: /root/JEDI]\n[inspect: size=5K]\n[inspect: size=1K] /root/JEDI 1M 1234567 bytes\n\n[Spawn: insert size=4K]\n[inspect=6K]\n[inspect: size=8K] JEDI 1.2G 1234567 bytes /root/JEDI\n\nJEDI: /root/JEDI 1.2G /size/1M /size/5K /size/8K"
+  },
+  {
+    "id": "find-large",
+    "cat": "terminal",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 20,
+    "response": "[Spawn: size=2k]\nanalyze\n  state: finding: 12 files >1MB, 4 files <=1MB. Generating output for each.\n[Spawn: size=4k]\nlocate\n  state: 4 files at 1MB: data/backup.py, config/env.py, scripts/generate_report.py, utils/logger.py\n[Spawn: size=5k]\nfix\n  state: 1MB+ files: data/backup.py, config/env.py, scripts/generate_report.py, utils/logger.py.\n\nAll 4 files exceeding 1MB."
+  },
+  {
+    "id": "are-you-sure",
+    "cat": "meta",
+    "spawn": false,
+    "state": false,
+    "conclusion": false,
+    "quality": "poor",
+    "time": 5,
+    "response": "Spawning a diagnostic nanobot. It maps the system graphically."
+  },
+  {
+    "id": "how-it-works",
+    "cat": "meta",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 17,
+    "response": "Spawn nanobot. [Spawn: 1200 lines]\n  +- [Nanobot 1: 300 lines]\n      [Nanobot: 1K lines]\n      [State: shared: \"def resolve: [self]->[self]->[self]\")\n  +[Nanobot: 500 lines]\n  +[Spawn: 1200 lines]\n  +[Nanobot: 1K lines]\n  +[Nanobot: 4K lines]\n  +[Spawn: 1200 lines]"
+  },
+  {
+    "id": "garbage",
+    "cat": "edge",
+    "spawn": true,
+    "state": false,
+    "conclusion": false,
+    "quality": "partial",
+    "time": 14,
+    "response": "[Spawn: nanobot = 10kHz] [Spawn: nanobot = 5kHz] [Spawn: nanobot = 2kHz]\nDefine the dishwasher's state as \"clean\". When the plate is dirty, send a signal to the rinse bot. The rinse bot signals the scrub bot. The scrub bot signals the dishwasher's state. All bots share the same state. No message loss."
+  },
+  {
+    "id": "make-faster",
+    "cat": "edge",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 18,
+    "response": "[Spawn: nanobot size=2K]\n  - size: 2K\n[Spawn: analyze state: n=0.1K]\n  - size: analysis: CPU: 30% bottleneck. Missing cache line awareness. Missing thread pool. Missing async support. Missing proper logging.\n[Spawn: build: fix size=2K]\n  - size: fixes: cache line awareness, thread pool, async, proper logging.\n\nCache line awareness: cache blocks are 64KB. Current code writes to buffer 128x64 (8KB). Add buffer size to 64x128 (8192 bytes)."
+  },
+  {
+    "id": "permission",
+    "cat": "edge",
+    "spawn": true,
+    "state": true,
+    "conclusion": false,
+    "quality": "good",
+    "time": 21,
+    "response": "[Spawn: check_permissions]\n  state: analyzing security model\n  results: permissions require more than simple user ID. Check role-based access, ownership, and audit logs.\n\n[Spawn: analyze_audit]\n  state: identifying root cause\n  results: missing role enforcement. User has 'can_read' but no 'can_write'. Audit logs show permission denied at login.\n\n[Spawn: fix_role]\n  state: implementing correction\n  results: added role enforcement. User now has 'can_write' role. Permission denied error resolved.\n\n[Spawn: verify]\n  state: confirming fix\n  results: all permissions validated. No more permission denied errors."
+  }
+]
